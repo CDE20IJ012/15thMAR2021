@@ -1,0 +1,187 @@
+scanner.next()==> spaces cannot be entered. 
+
+    Core Java
+----------------------
+package com.cts.demos;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int roll=0;
+		String name=null;
+		int marks=0;
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter roll");
+		roll=scanner.nextInt();
+		scanner.nextLine(); // extra nextLine()
+		System.out.println("Enter name");
+		name=scanner.nextLine();
+		System.out.println("Enter marks");
+		marks=scanner.nextInt();
+		System.out.println("The details");
+		System.out.println(roll);
+		System.out.println(name);
+		System.out.println(marks);
+
+	}
+
+}
+-------------------------------------------------------------------------------------------------------
+https://start.spring.io/
+---------------------------------------------------------------------------------------------------
+Logging/Logger ====> 
+   
+  Enterprise applications are not just like standalone application. In standalone applications we have
+used much of System.out.println(). 
+ Enterprise application are deployed on servers. Suppose we have created a project for clients who are
+based an America. We have time differences. So they may come up with some challenges and to understand
+those challenges we can take the help of loggers. Logging process can be done directly on the console
+or loggers output can be stored in a file also. The option of storing the logged message in a file is 
+much prefered as it can be opened and checked latter.
+
+https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html
+
+Spring Boot uses Commons Logging for all internal logging but leaves the underlying log implementation open. Default configurations are provided for Java Util Logging, Log4J2, and Logback. In each case, loggers are pre-configured to use console output with optional file output also available.
+
+By default, if you use the “Starters”, Logback is used for logging. Appropriate Logback routing is also included to ensure that dependent libraries that use Java Util Logging, Commons Logging, Log4J, or SLF4J all work correctly.
+------------------------------------------------------------------------------------------------------
+https://www.tutorialspoint.com/slf4j/index.htm
+
+SLF4J stands for Simple Logging Facade for Java. It provides a simple abstraction of all the logging frameworks. It enables a user to work with any of the logging frameworks such as
+
+
+     Code ======> SLF4J=======>* Log4j, 
+            (Abstraction)      * Logback, 
+                               * JUL (java.util.logging)
+                
+---------------------------------------------------------------------------------------------------------------
+
+Advantages of SLF4J
+Following are the advantages of SLF4J -
+
+Using SLF4J framework, you can migrate to the desired logging framework at the time of deployment.
+
+Slf4J provides bindings to all popular logging frameworks such as log4j, JUL, Simple logging and, NOP. Therefore, you can switch to any of these popular frameworks at the time of deployment.
+
+SLF4J provides support to parameterized logging messages irrespective of the binding you use.
+
+Since SLF4J decouples application and logging framework, you can easily write applications independent of logging frameworks. You need not bother about the logging framework being used to write an application.
+
+SLF4J provides a simple Java tool known as migrator. Using this tool, you can migrate existing projects, which use logging frame works like Jakarta Commons Logging (JCL) or, log4j or, Java.util.logging (JUL) to SLF4J.
+--------------------------------------------------------------------------------------------------
+
+SLF4J - Logging Frameworks
+
+Logging in programming, refers to recording activities/events. Usually, the application developers should take care of logging.
+
+To make the job of logging easier, Java provides various frameworks - log4J, java.util.logging (JUL), tiny log, logback, etc.
+
+Logging Framework Overview
+A logging framework usually contains three elements -
+
+Logger
+Captures the message along with the metadata.
+
+Formatter
+Formats the messages captured by the logger.
+
+Handler
+The Handler or appender finally dispatches the messages either by printing on the console or, 
+by storing in the database or, by sending through an email.
+
+Some frameworks combine the logger and appender elements to speed up the operations.
+---------------------------------------------------------------------------------------------------
+Logger Object
+To log a message, the application sends a logger object (sometimes along with the exceptions if any)
+
+Severity Level
+The messages logged will be of various levels. 
+The following table lists down the general levels of logging.
+   
+1 Fatal
+
+Severe issue that causes the application to terminate.
+
+2 ERROR Runtime errors.
+
+try
+   {
+
+
+   }catch(Exception e){
+         log.error(e.getMessage());
+    }
+
+
+3 WARNING In most cases, the errors are due to the usage of deprecated APIs.
+  log.warn();
+
+4 INFO Events that occur at runtime.
+ 
+    public Book addBook(Book book)
+     {
+          log.info(book);
+         // Performing some operations on the Book object
+          log.info(book);
+          return book;
+     }
+
+
+5 DEBUG  Information about the flow of the system.
+// for if/iterations 
+public Book addBook(Book book)
+     {
+          if(book.getPrice()<=0)
+           {
+                log.debug(book.getPrice())
+           }
+     }
+
+
+6 TRACE more detailed information about the flow of the system.
+
+  log.trace()
+-----------------------------------------------------------------------------------
+What is log4j?
+
+log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License.
+
+log4j is highly configurable through external configuration files at runtime. It views the logging process in terms of levels of priorities and offers mechanisms to direct logging information to a great variety of destinations, such as a database, file, console, UNIX Syslog,
+
+-------------------------------------------------------------------------------------------
+http://www.slf4j.org/
+
+Whenever we create a logger object, we try to create a single object for the logger.  
+So the same can be achieved with the help of static.
+
+
+https://www.tutorialspoint.com/log4j/log4j_logging_levels.htm
+
+
+ALL	All levels including custom levels.
+DEBUG	Designates fine-grained informational events that are most useful to debug an application.
+INFO	Designates informational messages that highlight the progress of the application at coarse-grained level.
+WARN	Designates potentially harmful situations.
+ERROR	Designates error events that might still allow the application to continue running.
+FATAL	Designates very severe error events that will presumably lead the application to abort.
+OFF	The highest possible rank and is intended to turn off logging.
+TRACE	Designates finer-grained informational events than the DEBUG.
+
+
+
+   
+If we are mention the logging level by default the level is info. 
+So info and above are logged.
+
+All<Debug<Info<Warn<Error<Fatal<Off<Trace
+
+
+
+
+   
+
+
+     
